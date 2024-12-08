@@ -21,7 +21,7 @@
       <div class="pl-5 text-green-1 mb-9">
         <p>
           <a
-            href="http://159.75.178.129:8251/#/"
+            href="https://snorlaxkaka.github.io/kaka_blog_web/#/"
             target="_blank"
             class="text-green-1 bd-bottom-about"
           >
@@ -41,7 +41,7 @@
         </p>
         <p>
           <a
-            href="http://159.75.178.129:8256/"
+            href="https://snorlaxkaka.github.io/react_tetris/"
             target="_blank"
             class="text-green-1 bd-bottom-about"
           >
