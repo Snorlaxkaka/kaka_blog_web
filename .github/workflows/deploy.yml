@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # 给予workflow写入权限
 
     steps:
       - name: Checkout 🛎️
@@ -20,7 +22,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          npm install
+          npm ci  # 使用npm ci来安装依赖，这比npm install更快且更安全
           npm run build
 
       - name: Deploy 🚀
@@ -29,3 +31,4 @@ jobs:
           branch: gh-pages
           folder: dist
           clean: true
+          token: ${{ secrets.GITHUB_TOKEN }} # 使用GITHUB_TOKEN进行部署
