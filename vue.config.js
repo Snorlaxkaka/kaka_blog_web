@@ -6,7 +6,7 @@ const path = require('path')
 module.exports = {
   lintOnSave: false,
   outputDir: 'dist',
-  publicPath: '/',
+  publicPath: '/kaka_blog_web/',  // 注意这里的斜杠
   productionSourceMap: false,
   chainWebpack: (config) => {
     //最小化代码
