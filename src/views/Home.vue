@@ -3,43 +3,33 @@
     <div class="mb-7">
       <div class="bgImg d-flex jc-center" id="header">
         <div class="text-white d-flex jc-center ai-center">
-          <span class="shouye-text">阿杰的个人博客网站......</span>
+          <span class="shouye-text">kaka的个人博客网站</span>
         </div>
         <div class="arrow-down">
           <i class="iconfont icon-down" @click="downPage"></i>
         </div>
       </div>
     </div>
-    <div class="post-container d-flex flex-wrap jc-center ai-center">
-      <div v-for="(article, i) in articles" :key="i">
-        <div
-          class="show home-art"
-          :style="{ maxWidth: '450px', maxHeight: '300px', fontSize: '18px' }"
-        >
-          <router-link
-            tag="div"
-            :to="`/article/list/${article._id}`"
-            class="top mt-10 mx-8 mb-0 hand"
-            :style="{ 'background-image': `url(${article.icon})` }"
-          ></router-link>
-          <div class="bg-postcolor pt-8 mx-8 title">
-            <router-link
-              tag="span"
-              :to="`/article/list/${article._id}`"
-              class="jc-center d-flex flex-wrap hand text-grey-1"
-            >
-              {{ article.title }}
-            </router-link>
-            <div class="d-flex mt-4 p-5 text-grey-1">
-              <i class="iconfont icon-riqi2 pr-2"></i>
-              <span>
-                {{ article.createdAt | date("YYYY-MM-DD") }}
-              </span>
-              <i class="iconfont icon-sort pl-6"></i>
-              <router-link tag="span" :to="`/tags`" class="pl-2 mr-6 hand">
+    <div class="articles-container">
+      <div v-for="(article, i) in articles" :key="i" class="article-item">
+        <div class="article-card">
+          <div class="article-title">
+            <div>
+              <router-link :to="`/article/list/${article._id}`">{{
+                article.title
+              }}</router-link>
+            </div>
+          </div>
+          <div class="article-meta">
+            <div class="article-date">
+              <i class="iconfont icon-riqi2"></i>
+              <span>{{ article.createdAt | date("YYYY-MM-DD") }}</span>
+            </div>
+            <div class="article-category">
+              <router-link :to="`/tags`">
+                <i class="iconfont icon-sort"></i>
                 {{ article.categories[0].name }}
               </router-link>
-              <i class="iconfont icon-love text-red hand"></i>
             </div>
           </div>
         </div>
@@ -221,20 +211,98 @@ export default {
   }
 }
 
-.post-container {
-  max-width: 1024px;
-  margin: 0 auto;
-  .top {
-    width: 25px;
-    height: 25px;
-  }
-}
 @media screen and (max-width: 768px) {
   .shouye-text {
     font-size: 24px !important;
   }
   .line-down {
     font-size: 24px !important;
+  }
+}
+
+/* 容器样式 */
+.articles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* 使文章从左向右排列 */
+}
+
+/* 每个文章项的样式 */
+.article-item {
+  width: calc(25% - 30px); /* 每个文章项占据25%的宽度减去间距 */
+  margin: 15px; /* 文章项之间的间距 */
+  box-sizing: border-box; /* 确保宽度包括padding和border */
+}
+
+/* 单篇文章卡片的样式 */
+.article-card {
+  background-color: #363938;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 120px;
+}
+
+/* 文章标题样式 */
+.article-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+  word-wrap: break-word; /* 允许在单词内换行 */
+  line-height: 1.5; /* 行高，根据需要调整 */
+  max-height: 72px; /* 限制标题区域的最大高度，以控制多行显示 */
+  overflow: hidden; /* 隐藏溢出的内容 */
+  a {
+    color: #34b686;
+  }
+}
+
+/* 文章元数据样式 */
+.article-meta {
+  display: flex;
+  justify-content: space-around; /* 时间和类别间隔均匀分布 */
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* 文章日期样式 */
+.article-date {
+  display: flex;
+  align-items: center;
+}
+
+/* 文章类别样式 */
+.article-category {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  a {
+    color: #bbb;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .article-item {
+    width: calc(33.333% - 30px); /* 在较小屏幕上每行显示3个 */
+  }
+}
+
+@media (max-width: 768px) {
+  .article-item {
+    width: calc(50% - 30px); /* 在更小的屏幕上每行显示2个 */
+  }
+}
+
+@media (max-width: 480px) {
+  .article-item {
+    width: 100%; /* 在手机屏幕上每行显示1个 */
   }
 }
 </style>
