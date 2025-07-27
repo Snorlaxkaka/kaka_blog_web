@@ -6,7 +6,7 @@ const path = require('path')
 module.exports = {
   lintOnSave: false,
   outputDir: 'dist',
-  publicPath: '/kaka_blog_web/',  // 注意这里的斜杠
+  publicPath: '/',  // 自定义域名时使用根路径
   productionSourceMap: false,
   chainWebpack: (config) => {
     //最小化代码
