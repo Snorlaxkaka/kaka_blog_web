@@ -4,7 +4,7 @@
       <div class="d-flex py-6 jc-center">
         <div class="px-7 hand">
           <a
-            href="https://github.com/linjunjie2023?tab=repositories"
+            href="https://github.com/Snorlaxkaka?tab=repositories"
             target="_blank"
             class="text-grey-1"
           >
@@ -18,6 +18,13 @@
         <div class="px-8 mb-4">
           <div class="text-grey-2 fs-sm">
             <p class="load">只要你想走，路就在你的脚下。</p>
+             <!-- 备案号开始 -->
+            <p class="beian">
+              <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener" style="color: inherit;">
+                粤ICP备2025449398号
+              </a>
+            </p>
+            <!-- 备案号结束 -->
           </div>
         </div>
       </div>
