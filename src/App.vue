@@ -5,7 +5,7 @@
 </template>
 
 <script>
-window.addEventListener('beforeunload', (e) => {
+window.addEventListener('beforeunload', () => {
   window.scroll(0, 0)
 })
 export default {
