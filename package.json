@@ -5,7 +5,13 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development vue-cli-service serve --mode development",
     "build": "cross-env NODE_ENV=production vue-cli-service build --mode production",
-    "lint": "eslint src/**/*.{js,vue}"
+    "lint": "eslint src/**/*.{js,vue}",
+    "eslint": "eslint"
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "axios": "0.24.0",
@@ -31,6 +37,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
     "globals": "^16.3.0",
+    "lint-staged": "^16.1.4",
     "sass": "1.26.3",
     "sass-loader": "8.0.2",
     "vue-template-compiler": "2.6.14"
