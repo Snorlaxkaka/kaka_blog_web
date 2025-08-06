@@ -53,6 +53,7 @@
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+      <Search />
     </div>
   </header>
 </template>

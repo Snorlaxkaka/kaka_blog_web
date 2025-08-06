@@ -7,18 +7,18 @@
     ></i>
     <el-dialog
       :append-to-body="true"
-      title="搜索"
+      title="文章搜索"
       class="text-center fs-xxxxl"
       :visible.sync="dialogVisible"
-      width="40%"
+      width="60%"
     >
       <div id="search">
         <input
           v-model="search"
           type="text"
           required="true"
-          class="search-input bdr w-100 fs-xxxl"
-          placeholder="标题关键词"
+          class="search-input bdr w-100 fs-xxl"
+          placeholder="文章关键词"
           @keyup.enter="Search"
           style="height: 40px"
         />
@@ -26,10 +26,11 @@
       <ul v-for="blog in filterBlogs" :key="blog._id">
         <router-link
           tag="li"
-          class="hand fs-xxxl pt-3"
+          class="hand fs-xl pt-3"
           :class="isInput ? `show-list` : ''"
           :to="`/article/list/${blog._id}`"
           style="display: none"
+           @click.native="clearSearch" 
         >
           {{ blog.title }}
         </router-link>
@@ -78,6 +79,11 @@ export default {
         document.getElementsByClassName('search-input')[0].value
       this.isInput = inputTitle || ''
     },
+    clearSearch() {
+      this.search = ''
+      this.isInput = false
+      this.dialogVisible = false
+    },
   },
   created() {
     this.fetchArticles()
@@ -97,6 +103,7 @@ export default {
 }
 .show-list {
   display: block !important;
+  text-align: left;
 }
 @media screen and (max-width: 650px) {
   .nav-item {
